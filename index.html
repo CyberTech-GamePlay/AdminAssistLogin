@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CB Davao | Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ============ LOGIN SCREEN ============ -->
+  <div id="loginScreen" class="login-wrapper">
+    <div class="login-card">
+      <div class="brand">
+        <span class="logo">CB</span>
+        <h2>Admin Login</h2>
+      </div>
+      <p>Enter your credentials to manage bookings.</p>
+      
+      <form id="loginForm">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="email" required placeholder="admin@computerboss.com" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" id="password" required placeholder="••••••••" />
+        </div>
+        <button type="submit" class="btn btn-primary" id="loginBtn">Log In</button>
+        <p id="loginError" class="error-msg hidden"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ DASHBOARD SCREEN ============ -->
+  <div id="dashboardScreen" class="dashboard-wrapper hidden">
+    
+    <!-- Header -->
+    <header class="admin-header">
+      <div class="brand">
+        <span class="logo">CB</span>
+        <span class="brand-text">
+          <strong>Computer Boss Davao</strong>
+          <small>Admin Dashboard</small>
+        </span>
+      </div>
+      <button id="logoutBtn" class="btn btn-outline">Log Out</button>
+    </header>
+
+    <main class="container">
+      
+      <!-- Filters -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All Bookings</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="follow-up">Follow Up</button>
+        <button class="filter-btn" data-filter="done">Done</button>
+      </div>
+
+      <!-- Bookings Grid -->
+      <div id="bookingsGrid" class="bookings-grid">
+        <!-- Cards will be injected here by JS -->
+      </div>
+      
+      <div id="emptyState" class="empty-state hidden">
+        <p>No bookings found for this category.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Supabase and Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
